@@ -2,16 +2,30 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\ProductSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CategoryTest extends TestCase
 {
-   public function test_example(): void
+   public function testResource()
    {
-      $response = $this->get('/');
+      $this->seed([CategorySeeder::class]);
 
-      $response->assertStatus(200);
+      $category = Category::first();
+
+      $this->get("/api/categories/{$category->id}")
+         ->assertStatus(200)
+         ->assertJson([
+            "data" => [
+               "id" => $category->id,
+               "name" => $category->name,
+               "created_at" => $category->created_at->toJSON(),
+               "updated_at" => $category->updated_at->toJSON(),
+            ]
+         ]);
    }
 }
