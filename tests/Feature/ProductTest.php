@@ -67,7 +67,7 @@ class ProductTest extends TestCase
 
       $product = Product::first();
 
-      $this->get("/api/products-debug/$product->id")
+      $response = $this->get("/api/products-debug/$product->id")
          ->assertStatus(200)
          ->assertJson([
             "author" => "whydandrian",
@@ -77,5 +77,6 @@ class ProductTest extends TestCase
                "price" => $product->price,
             ]
          ]);
+      self::assertNotNull($response->json("server_time"));
    }
 }

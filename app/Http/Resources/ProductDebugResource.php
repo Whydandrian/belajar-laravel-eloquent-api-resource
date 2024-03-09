@@ -11,15 +11,20 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class ProductDebugResource extends JsonResource
 {
-   public $additional = [
-      "author" => "whydandrian"
-   ];
+   // public $additional = [
+   //    "author" => "whydandrian"
+   // ];
+   public static $wrap = "data";
    public function toArray(Request $request): array
    {
       return [
-         "id" => $this->id,
-         "name" => $this->name,
-         "price" => $this->price,
+         "author" => "whydandrian",
+         "server_time" => now()->toDateTimeString(),
+         "data" => [
+            "id" => $this->id,
+            "name" => $this->name,
+            "price" => $this->price
+         ]
       ];
    }
 }
