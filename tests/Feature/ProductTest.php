@@ -30,7 +30,5 @@ class ProductTest extends TestCase
                "updated_at" => $products->updated_at->toJson(),
             ]
          ]);
-
-      return $this->any();
    }
 }
