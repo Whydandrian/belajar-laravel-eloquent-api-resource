@@ -23,8 +23,6 @@ class CategoryTest extends TestCase
             "data" => [
                "id" => $category->id,
                "name" => $category->name,
-               "created_at" => $category->created_at->toJSON(),
-               "updated_at" => $category->updated_at->toJSON(),
             ]
          ]);
    }
@@ -41,15 +39,11 @@ class CategoryTest extends TestCase
             "data" => [
                [
                   "id" => $categories[0]->id,
-                  "name" => $categories[0]->name,
-                  "created_at" => $categories[0]->created_at->toJSON(),
-                  "updated_at" => $categories[0]->updated_at->toJSON(),
+                  "name" => $categories[0]->name
                ],
                [
                   "id" => $categories[1]->id,
-                  "name" => $categories[1]->name,
-                  "created_at" => $categories[1]->created_at->toJSON(),
-                  "updated_at" => $categories[1]->updated_at->toJSON(),
+                  "name" => $categories[1]->name
                ],
             ]
          ]);
@@ -67,15 +61,11 @@ class CategoryTest extends TestCase
             "data" => [
                [
                   "id" => $categories[0]->id,
-                  "name" => $categories[0]->name,
-                  "created_at" => $categories[0]->created_at->toJSON(),
-                  "updated_at" => $categories[0]->updated_at->toJSON(),
+                  "name" => $categories[0]->name
                ],
                [
                   "id" => $categories[1]->id,
-                  "name" => $categories[1]->name,
-                  "created_at" => $categories[1]->created_at->toJSON(),
-                  "updated_at" => $categories[1]->updated_at->toJSON(),
+                  "name" => $categories[1]->name
                ],
             ],
             "total" => 2
