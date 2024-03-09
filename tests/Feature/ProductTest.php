@@ -60,4 +60,22 @@ class ProductTest extends TestCase
       self::assertNotNull($response->json("meta"));
       self::assertNotNull($response->json("data"));
    }
+
+   public function testAdditionalMetadata()
+   {
+      $this->seed([CategorySeeder::class, ProductSeeder::class]);
+
+      $product = Product::first();
+
+      $this->get("/api/products-debug/$product->id")
+         ->assertStatus(200)
+         ->assertJson([
+            "author" => "whydandrian",
+            "data" => [
+               "id" => $product->id,
+               "name" => $product->name,
+               "price" => $product->price,
+            ]
+         ]);
+   }
 }

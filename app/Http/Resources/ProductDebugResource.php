@@ -18,7 +18,7 @@ class ProductDebugResource extends JsonResource
    {
       return [
          "id" => $this->id,
-         "name" => $this->price,
+         "name" => $this->name,
          "price" => $this->price,
       ];
    }
