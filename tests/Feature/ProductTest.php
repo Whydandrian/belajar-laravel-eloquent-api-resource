@@ -18,6 +18,7 @@ class ProductTest extends TestCase
 
       $this->get("/api/products/$products->id")
          ->assertStatus(200)
+         ->assertHeader("X-Powered-By", "whydandrian")
          ->assertJson([
             "value" => [
                "name" => $products->name,
