@@ -11,7 +11,7 @@ use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
-   public function testProductDataWrap()
+   public function testDataWrap()
    {
       $this->seed([CategorySeeder::class, ProductSeeder::class]);
       $products = Product::first();
@@ -26,13 +26,14 @@ class ProductTest extends TestCase
                   "name" => $products->category->name,
                ],
                "price" => $products->price,
+               "is_expensive" => $products->price > 1000,
                "created_at" => $products->created_at->toJson(),
                "updated_at" => $products->updated_at->toJson(),
             ]
          ]);
    }
 
-   public function testCollectionDataWrap()
+   public function test_CollectionDataWrap()
    {
       $this->seed([CategorySeeder::class, ProductSeeder::class]);
 
@@ -49,7 +50,7 @@ class ProductTest extends TestCase
       }
    }
 
-   public function testProductPaging()
+   public function testPaging()
    {
       $this->seed([CategorySeeder::class, ProductSeeder::class]);
 
