@@ -54,7 +54,7 @@ class CategoryTest extends TestCase
             ]
          ]);
    }
-  
+
    public function testResourceCollectionCustom()
    {
       $this->seed([CategorySeeder::class]);
